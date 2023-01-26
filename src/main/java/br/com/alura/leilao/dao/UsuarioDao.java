@@ -1,12 +1,10 @@
 package br.com.alura.leilao.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import br.com.alura.leilao.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.com.alura.leilao.model.Usuario;
+import javax.persistence.EntityManager;
 
 @Repository
 public class UsuarioDao {
