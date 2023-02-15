@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,23 +16,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "leilao")
 public class Leilao {
 
 	@Id
+	@Column(name = "id_leilao")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull
 	@NotBlank
+	@Column(name = "ds_nome")
 	private String nome;
 
 	@NotNull
 	@DecimalMin(value = "0.1")
+	@Column(name = "vl_inicial")
 	private BigDecimal valorInicial;
 
 	@OneToOne
@@ -39,6 +45,7 @@ public class Leilao {
 	private Usuario usuario;
 
 	@NotNull
+	@Column(name = "dt_abertura")
 	private LocalDate dataAbertura;
 
 	@OneToMany(mappedBy = "leilao")
